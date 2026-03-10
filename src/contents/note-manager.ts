@@ -201,7 +201,7 @@ const renderAllBadges = () => {
   isRendering = false
 }
 
-const updateHistory = (notes: NoteDiagnostics[]) => {
+const updateHistory = (notes: NoteDiagnostics[], allNotes: NoteDiagnostics[]) => {
   try {
     const raw = localStorage.getItem(STORAGE_KEYS.HISTORY)
     const history: LevelHistory = raw ? JSON.parse(raw) : {}
@@ -216,7 +216,7 @@ const updateHistory = (notes: NoteDiagnostics[]) => {
     }
 
     const snapshot: Snapshot = {
-      notes,
+      notes: allNotes,
       updatedAt: Date.now()
     }
 
@@ -241,7 +241,7 @@ const handlePayload = async (payload: any) => {
   renderAllBadges()
 
   try {
-    updateHistory(notes)
+    updateHistory(notes, latestNotes)
   } catch (error) {
     console.warn("[XHS Health Checker] storage update failed:", error)
   }
