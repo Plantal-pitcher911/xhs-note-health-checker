@@ -2,7 +2,6 @@ import { useEffect, useMemo, useState, type CSSProperties } from "react"
 
 import {
   getLevelMeta,
-  getTrendArrow,
   LEVEL_HELP,
   type LevelHistory,
   type NoteDiagnostics,
@@ -150,17 +149,32 @@ function IndexPopup() {
         ) : (
           limitedNotes.map((note) => {
             const history = state.history[note.noteId] || []
-            const arrow = getTrendArrow(history)
-
             return (
               <div key={note.noteId} style={{ marginTop: 8, borderTop: "1px dashed #e7e5e4", paddingTop: 8 }}>
                 <div style={{ ...rowStyle, padding: 0 }}>
                   <span style={badgeStyle(note.level)}>{note.levelLabel}</span>
-                  <strong>{arrow}</strong>
+                  <a
+                    href={`https://creator.xiaohongshu.com/publish/publish?noteId=${note.noteId}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    title="编辑笔记"
+                    style={{ textDecoration: "none", fontSize: 13, cursor: "pointer" }}
+                  >
+                    ✏️
+                  </a>
                 </div>
                 <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.35 }}>{note.title}</div>
                 <div style={{ ...mutedStyle, marginTop: 2 }}>原因：{reasonText(note)}</div>
-                <div style={{ ...mutedStyle, marginTop: 2 }}>history points: {history.length}</div>
+                <div style={{ ...mutedStyle, marginTop: 2 }}>
+                  {(() => {
+                    if (history.length === 0) return "首次检测"
+                    const first = history.find((h) => h.level === note.level)
+                    if (!first) return `首次检测到 ${note.levelLabel}`
+                    const days = Math.floor((Date.now() - first.timestamp) / 86400000)
+                    if (days === 0) return "今天检测到限流"
+                    return `已限流 ${days} 天`
+                  })()}
+                </div>
               </div>
             )
           })
