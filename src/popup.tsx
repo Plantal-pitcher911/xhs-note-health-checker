@@ -165,16 +165,11 @@ function IndexPopup() {
                 </div>
                 <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.35 }}>{note.title}</div>
                 <div style={{ ...mutedStyle, marginTop: 2 }}>原因：{reasonText(note)}</div>
-                <div style={{ ...mutedStyle, marginTop: 2 }}>
-                  {(() => {
-                    if (history.length === 0) return "首次检测"
-                    const first = history.find((h) => h.level === note.level)
-                    if (!first) return `首次检测到 ${note.levelLabel}`
-                    const days = Math.floor((Date.now() - first.timestamp) / 86400000)
-                    if (days === 0) return "今天首次检测到"
-                    return `首次检测于 ${days} 天前`
-                  })()}
-                </div>
+                {history.length >= 2 && history[0].level !== history[history.length - 1].level && (
+                  <div style={{ ...mutedStyle, marginTop: 2, color: history[history.length - 1].level > history[0].level ? "#16a34a" : "#dc2626" }}>
+                    {history[history.length - 1].level > history[0].level ? "↑ 好转" : "↓ 恶化"}：{getLevelMeta(history[0].level).label} → {getLevelMeta(history[history.length - 1].level).label}
+                  </div>
+                )}
               </div>
             )
           })
