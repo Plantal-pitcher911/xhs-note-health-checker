@@ -100,16 +100,13 @@ function IndexPopup() {
 
   const reasonText = (note: NoteDiagnostics) => {
     const reasons = [] as string[]
-    if (note.level < 1) {
-      reasons.push("level 低于 1")
-    }
     if (note.sensitiveHits.length > 0) {
       reasons.push(`敏感词：${note.sensitiveHits.join("、")}`)
     }
     if (note.tagWarning) {
-      reasons.push(`标签/话题 ${note.tagCount} 个`) 
+      reasons.push(`标签/话题 ${note.tagCount} 个`)
     }
-    return reasons.join(" | ") || "无明显风险"
+    return reasons.length > 0 ? reasons.join(" | ") : null
   }
 
   return (
@@ -164,7 +161,9 @@ function IndexPopup() {
                   </a>
                 </div>
                 <div style={{ fontSize: 12, fontWeight: 600, lineHeight: 1.35 }}>{note.title}</div>
-                <div style={{ ...mutedStyle, marginTop: 2 }}>原因：{reasonText(note)}</div>
+                {reasonText(note) && (
+                  <div style={{ ...mutedStyle, marginTop: 2 }}>⚠️ {reasonText(note)}</div>
+                )}
                 {history.length >= 2 && history[0].level !== history[history.length - 1].level && (
                   <div style={{ ...mutedStyle, marginTop: 2, color: history[history.length - 1].level > history[0].level ? "#16a34a" : "#dc2626" }}>
                     {history[history.length - 1].level > history[0].level ? "↑ 好转" : "↓ 恶化"}：{getLevelMeta(history[0].level).label} → {getLevelMeta(history[history.length - 1].level).label}
