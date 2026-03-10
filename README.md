@@ -59,11 +59,6 @@ pnpm build   # 生产构建 + 打包 zip
 
 可在 `src/lib/xhs.ts` 的 `SENSITIVE_WORDS` 数组中自定义。
 
-## 灵感来源
-
-- [Ceelog/note-limited-finder](https://github.com/Ceelog/note-limited-finder) — 最早的 XHS Level 检测扩展
-- 本项目在其基础上增加了：敏感词诊断、标签数量检测、历史追踪、Popup 面板
-
 ## License
 
 MIT
